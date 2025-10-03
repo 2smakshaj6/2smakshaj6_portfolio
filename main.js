@@ -547,7 +547,10 @@ class SecurityPortfolio {
             history.scrollRestoration = 'manual';
         }
         
-        // Force scroll to top immediately on page load
+        // Force scroll to top immediately
+        window.scrollTo(0, 0);
+        
+        // Force scroll to top on page unload
         window.addEventListener('beforeunload', () => {
             window.scrollTo(0, 0);
         });
@@ -566,7 +569,7 @@ class SecurityPortfolio {
                         block: 'start'
                     });
                 }
-            }, 200); // Slightly longer delay to ensure animations start properly
+            }, 300); // Longer delay to ensure animations start properly
         });
         
         // Also handle DOMContentLoaded as backup
@@ -574,6 +577,11 @@ class SecurityPortfolio {
             // Force scroll to top immediately
             window.scrollTo(0, 0);
         });
+        
+        // Additional aggressive scroll prevention
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 0);
     }
 }
 
