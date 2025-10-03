@@ -542,13 +542,22 @@ class SecurityPortfolio {
 
     // Page Load Scroll Setup - Always start from About section
     setupPageLoadScroll() {
-        // Check if this is a page refresh (not initial load)
-        const isPageRefresh = performance.navigation.type === 1 || 
-                              performance.getEntriesByType('navigation')[0].type === 'reload';
+        // Disable browser's automatic scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Force scroll to top immediately on page load
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
         
         // Always scroll to about section on page load/refresh
         window.addEventListener('load', () => {
-            // Small delay to ensure all animations and content are loaded
+            // Force scroll to top first
+            window.scrollTo(0, 0);
+            
+            // Then scroll to about section with a small delay
             setTimeout(() => {
                 const aboutSection = document.getElementById('about');
                 if (aboutSection) {
@@ -557,7 +566,13 @@ class SecurityPortfolio {
                         block: 'start'
                     });
                 }
-            }, 100); // Small delay to ensure animations start properly
+            }, 200); // Slightly longer delay to ensure animations start properly
+        });
+        
+        // Also handle DOMContentLoaded as backup
+        document.addEventListener('DOMContentLoaded', () => {
+            // Force scroll to top immediately
+            window.scrollTo(0, 0);
         });
     }
 }
