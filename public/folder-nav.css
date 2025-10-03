@@ -1,0 +1,62 @@
+:root {
+  --fnav-bg: #0b0c10;
+  --fnav-surface: #11141a;
+  --fnav-accent: #5aa9e6;
+  --fnav-accent-2: #8be9fd;
+  --fnav-text: #e6eef7;
+  --fnav-muted: #9aa7b2;
+  --fnav-radius: 14px;
+  --fnav-ease: cubic-bezier(.2,.8,.2,1);
+  --fnav-shadow: 0 8px 24px rgb(0 0 0 / .25);
+  --fnav-speed: 380ms;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --fnav-bg: #f7f8fa;
+    --fnav-surface: #ffffff;
+    --fnav-text: #0d1117;
+    --fnav-muted: #5b6b76;
+    --fnav-shadow: 0 8px 24px rgb(0 0 0 / .08);
+  }
+}
+
+.folderNav {
+  display: flex; gap: .5rem; align-items: end; padding: .75rem 0;
+  position: relative; z-index: 5;
+}
+.folderNav .fnav-tab {
+  position: relative; display: inline-flex; align-items: center;
+  padding: .65rem 1rem .6rem; border-radius: var(--fnav-radius) var(--fnav-radius) 0 0;
+  background: linear-gradient(180deg, var(--fnav-surface), color-mix(in oklab, var(--fnav-surface), black 6%));
+  box-shadow: var(--fnav-shadow);
+  text-decoration: none; color: var(--fnav-muted); font-weight: 600;
+  transition: transform 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  border: 1px solid color-mix(in oklab, var(--fnav-surface), black 12%);
+  border-bottom: none;
+}
+.folderNav .fnav-tab:hover,
+.folderNav .fnav-tab:focus-visible { transform: translateY(-2px); color: var(--fnav-text); outline: none; }
+.folderNav .fnav-tab[aria-selected="true"] {
+  color: var(--fnav-text);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--fnav-surface), white 4%), var(--fnav-surface));
+  transform: translateY(-3px);
+}
+
+#fnav-view, .fnav-section {
+  position: relative; isolation: isolate;
+  background: var(--fnav-surface); border-radius: 0 var(--fnav-radius) var(--fnav-radius) var(--fnav-radius);
+  border: 1px solid color-mix(in oklab, var(--fnav-surface), black 12%);
+  box-shadow: var(--fnav-shadow); padding: clamp(16px, 2.5vw, 28px);
+}
+
+.fnav-enter { opacity: 0; transform: translateX(-24px) scale(.98); }
+.fnav-enter-active { opacity: 1; transform: translateX(0) scale(1); transition: all var(--fnav-speed) var(--fnav-ease); }
+.fnav-exit { opacity: 1; transform: translateX(0) scale(1); }
+.fnav-exit-active { opacity: 0; transform: translateX(24px) scale(.98); transition: all var(--fnav-speed) var(--fnav-ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fnav-enter, .fnav-enter-active, .fnav-exit, .fnav-exit-active { transition: none !important; transform: none !important; }
+}
+
+

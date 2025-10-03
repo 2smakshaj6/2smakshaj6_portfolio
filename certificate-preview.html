@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 2rem;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #60a5fa;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .cert-item {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .cert-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+        }
+        .cert-filename {
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .cert-name {
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .status {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #60a5fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Certificate Images Preview</h1>
+        
+        <div class="cert-grid">
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">google-cybersecurity-cert.jpg</div>
+                <div class="cert-name">Google Cybersecurity Professional Certificate V2</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">iso27001-lead-auditor.jpg</div>
+                <div class="cert-name">ISO/IEC 27001:2022 Lead Auditor</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">google-ai-essentials.jpg</div>
+                <div class="cert-name">Google AI Essentials</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">aws-cloud-practitioner.jpg</div>
+                <div class="cert-name">AWS Certified Cloud Practitioner</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">isc2-cc.jpg</div>
+                <div class="cert-name">(ISC)2 Certified in Cybersecurity (CC)</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">mastercard-cybersecurity.jpg</div>
+                <div class="cert-name">Mastercard Cybersecurity Job Simulation</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">tata-cybersecurity.jpg</div>
+                <div class="cert-name">Tata Group Cybersecurity Analyst Job Simulation</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">linkedin-siem.jpg</div>
+                <div class="cert-name">Introduction to Security Information and Event Management (SIEM)</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">cisco-cybersecurity.jpg</div>
+                <div class="cert-name">Introduction to Cybersecurity</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">linkedin-sql.jpg</div>
+                <div class="cert-name">SQL Programming (NASBA)</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">guvi-ai-india.jpg</div>
+                <div class="cert-name">AI for India</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-image">📜</div>
+                <div class="cert-filename">guvi-python-face-recognition.jpg</div>
+                <div class="cert-name">Build a Face Recognition Application using Python</div>
+            </div>
+        </div>
+        
+        <div class="status">
+            <h3>📝 Instructions:</h3>
+            <ol>
+                <li>Save your certificate images with the exact filenames shown above</li>
+                <li>Place them in the <code>public/certificates/</code> directory</li>
+                <li>Recommended image size: 400x300 pixels</li>
+                <li>Supported formats: JPG, PNG</li>
+                <li>Refresh your main portfolio page to see the actual certificates</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://smakshaj.com/sitemap.xml
+
+# Disallow crawling of specific directories
+Disallow: /api/
+Disallow: /uploads/
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.idea/
+
+# Allow crawling of important files
+Allow: /index.html
+Allow: /styles.css
+Allow: /main.js
+Allow: /public/
+
+# Crawl delay (optional - helps prevent overloading server)
+Crawl-delay: 1

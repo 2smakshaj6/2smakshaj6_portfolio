@@ -1,0 +1,45 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Robot Body -->
+  <rect x="60" y="80" width="80" height="100" rx="10" fill="#4a5568" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Robot Head -->
+  <circle cx="100" cy="60" r="25" fill="#4a5568" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Eyes -->
+  <circle cx="92" cy="55" r="3" fill="#ef4444"/>
+  <circle cx="108" cy="55" r="3" fill="#ef4444"/>
+  
+  <!-- Antenna -->
+  <line x1="100" y1="35" x2="100" y2="25" stroke="#2d3748" stroke-width="2"/>
+  <circle cx="100" cy="22" r="3" fill="#fbbf24"/>
+  
+  <!-- Arms -->
+  <rect x="40" y="90" width="20" height="60" rx="5" fill="#4a5568" stroke="#2d3748" stroke-width="2"/>
+  <rect x="140" y="90" width="20" height="60" rx="5" fill="#4a5568" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Hands -->
+  <circle cx="50" cy="160" r="8" fill="#2d3748"/>
+  <circle cx="150" cy="160" r="8" fill="#2d3748"/>
+  
+  <!-- Unplugged Cable -->
+  <path d="M50 160 Q30 140 10 120" stroke="#6b7280" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="10" cy="120" r="4" fill="#ef4444"/>
+  
+  <!-- Cable End -->
+  <rect x="6" y="116" width="8" height="8" rx="2" fill="#9ca3af"/>
+  
+  <!-- Warning Symbol -->
+  <circle cx="100" cy="120" r="15" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+  <text x="100" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#92400e">!</text>
+  
+  <!-- Data Packets Floating Away -->
+  <rect x="120" y="40" width="12" height="8" rx="2" fill="#3b82f6" opacity="0.7">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 40,-20" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="130" y="50" width="12" height="8" rx="2" fill="#3b82f6" opacity="0.5">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 15,-8; 30,-16" dur="2.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="140" y="60" width="12" height="8" rx="2" fill="#3b82f6" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 10,-6; 20,-12" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
