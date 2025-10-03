@@ -20,39 +20,33 @@
             history.scrollRestoration = 'manual';
         }
         
-        // Force scroll to about section immediately
-        function scrollToAbout() {
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({
-                    behavior: 'instant',
-                    block: 'start'
-                });
-            }
+        // Force scroll to top of page immediately
+        function scrollToTop() {
+            window.scrollTo(0, 0);
         }
         
-        // Force scroll to about section immediately on page load
-        scrollToAbout();
+        // Force scroll to top immediately on page load
+        scrollToTop();
         
-        // Force scroll to about section on page unload
+        // Force scroll to top on page unload
         window.addEventListener('beforeunload', function() {
-            scrollToAbout();
+            scrollToTop();
         });
         
-        // Force scroll to about section on page load
+        // Force scroll to top on page load
         window.addEventListener('load', function() {
-            scrollToAbout();
+            scrollToTop();
         });
         
         // Additional aggressive scroll prevention
         document.addEventListener('DOMContentLoaded', function() {
-            scrollToAbout();
+            scrollToTop();
         });
         
-        // Keep at about section during animations
-        setTimeout(scrollToAbout, 100);
-        setTimeout(scrollToAbout, 300);
-        setTimeout(scrollToAbout, 500);
+        // Keep at top during animations
+        setTimeout(scrollToTop, 100);
+        setTimeout(scrollToTop, 300);
+        setTimeout(scrollToTop, 500);
     </script>
 </head>
 <body>
