@@ -547,40 +547,74 @@ class SecurityPortfolio {
             history.scrollRestoration = 'manual';
         }
         
-        // Force scroll to top immediately
-        window.scrollTo(0, 0);
+        // Force scroll to about section immediately
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({
+                behavior: 'instant',
+                block: 'start'
+            });
+        }
         
-        // Force scroll to top on page unload
+        // Force scroll to about section on page unload
         window.addEventListener('beforeunload', () => {
-            window.scrollTo(0, 0);
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'instant',
+                    block: 'start'
+                });
+            }
         });
         
         // Always scroll to about section on page load/refresh
         window.addEventListener('load', () => {
-            // Force scroll to top first
-            window.scrollTo(0, 0);
+            // Force scroll to about section immediately
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'instant',
+                    block: 'start'
+                });
+            }
             
-            // Then scroll to about section with a small delay
+            // Keep it at about section during animations
             setTimeout(() => {
-                const aboutSection = document.getElementById('about');
                 if (aboutSection) {
                     aboutSection.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: 'instant',
                         block: 'start'
                     });
                 }
-            }, 300); // Longer delay to ensure animations start properly
+            }, 100);
+            
+            setTimeout(() => {
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({
+                        behavior: 'instant',
+                        block: 'start'
+                    });
+                }
+            }, 500);
         });
         
         // Also handle DOMContentLoaded as backup
         document.addEventListener('DOMContentLoaded', () => {
-            // Force scroll to top immediately
-            window.scrollTo(0, 0);
+            // Force scroll to about section immediately
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'instant',
+                    block: 'start'
+                });
+            }
         });
         
         // Additional aggressive scroll prevention
         setTimeout(() => {
-            window.scrollTo(0, 0);
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'instant',
+                    block: 'start'
+                });
+            }
         }, 0);
     }
 }
