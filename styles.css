@@ -115,6 +115,7 @@
 /* Custom Scrollbar Styling - Solid Amber Theme */
 ::-webkit-scrollbar {
     width: 12px;
+    height: 12px; /* For horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track {
@@ -123,23 +124,35 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #f59e0b; /* Solid amber color */
+    background: #f59e0b !important; /* Solid amber color with !important */
     border-radius: 6px;
     border: none; /* Remove border for full width */
+    min-height: 20px; /* Ensure minimum thumb height */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #fbbf24; /* Brighter amber on hover */
+    background: #fbbf24 !important; /* Brighter amber on hover */
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #d97706; /* Darker amber when active */
+    background: #d97706 !important; /* Darker amber when active */
+}
+
+/* Additional scrollbar styling for better compatibility */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #f59e0b #0f172a;
 }
 
 /* Firefox scrollbar styling */
 html {
     scrollbar-width: thin;
     scrollbar-color: #f59e0b #0f172a; /* Solid amber thumb, page background track */
+}
+
+/* Ensure scrollbar is visible */
+body {
+    overflow-y: scroll; /* Force vertical scrollbar to always show */
 }
 
 /* Reduce motion for accessibility */
