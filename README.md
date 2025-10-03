@@ -1,52 +1,139 @@
-# Security Portfolio
+# Akshaj's Portfolio
 
-A fast, single-page portfolio website showcasing expertise in both Security Engineering and Software Engineering.
+A modern, responsive portfolio website showcasing cybersecurity and software engineering expertise.
 
-## Features
+## 🚀 Live Demo
+[View Portfolio](https://2smakshaj6.github.io/2smakshaj6_portfolio/)
 
-- **Security-First Design**: Dark theme with security-themed animations and error pages
-- **Three.js Hero Animation**: Subtle shield animation with threat pulses (respects reduced motion)
-- **Interactive Demos**: 
-  - Security alert simulation
-  - Engineering metrics dashboard
-- **Secure Backend**: Flask API with CSRF protection, rate limiting, and security headers
-- **Accessibility**: WCAG compliant with semantic HTML and ARIA labels
-- **Mobile-First**: Responsive design optimized for all devices
+## 📁 Project Structure
+```
+security-portfolio/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styles
+├── main.js            # JavaScript functionality
+├── public/            # Static assets
+│   ├── favicon.svg    # Custom AK logo favicon
+│   ├── akj_profile.JPG # Profile picture
+│   └── figurines/     # 404 page assets
+├── scripts/           # Helper scripts
+│   └── git-helper.sh  # Git workflow automation
+├── 404.html          # Custom 404 error page
+├── 500.html          # Custom 500 error page
+└── robots.txt        # SEO configuration
+```
 
-## Tech Stack
+## 🛠️ Development
 
-- **Frontend**: HTML5, CSS3, JavaScript, Three.js
-- **Backend**: Flask (Python)
-- **Hosting**: Vercel
-- **Security**: CSP, CSRF protection, rate limiting, security headers
+### Local Development
+```bash
+# Start local server
+python3 -c "
+import http.server
+import socketserver
+from http.server import SimpleHTTPRequestHandler
+import os
 
-## API Endpoints
+class CustomHandler(SimpleHTTPRequestHandler):
+    def send_error(self, code, message=None):
+        if code == 404:
+            self.path = '/404.html'
+            return SimpleHTTPRequestHandler.do_GET(self)
+        else:
+            return SimpleHTTPRequestHandler.send_error(self, code, message)
 
-- `GET /api/health` - Health check
-- `POST /api/contact` - Contact form submission
-- `POST /api/simulate-alert` - Security alert simulation
-- `GET /api/metrics` - Engineering metrics
-- `GET /api/csrf-token` - CSRF token generation
+PORT = 8001
+with socketserver.TCPServer(('', PORT), CustomHandler) as httpd:
+    print(f'Server running at http://localhost:{PORT}/')
+    print('Test 404: http://localhost:8001/nonexistent-page')
+    httpd.serve_forever()
+"
+```
 
-## Deployment
+### Git Workflow
+```bash
+# Quick commit and push
+./scripts/git-helper.sh quick "Your commit message"
 
-1. Deploy to Vercel
-2. All API routes are automatically configured
-3. Security headers are applied globally
-4. Static assets are cached for optimal performance
+# Check status
+./scripts/git-helper.sh status
 
-## Security Features
+# Deploy to production
+./scripts/git-helper.sh deploy
+```
 
-- Content Security Policy (CSP)
-- CSRF protection with double-submit cookies
-- Rate limiting (5 requests per 10 minutes per IP)
-- Security headers on all responses
-- Honeypot fields for bot protection
-- Input validation and sanitization
+## 📱 Features
 
-## Performance
+### Responsive Design
+- **Desktop**: 3-column project grid, full navigation
+- **Tablet**: 2-column project grid, hamburger menu
+- **Mobile**: 1-column layout, slide-out navigation
 
-- Lighthouse score target: 90+ across all metrics
-- Optimized Three.js animation with reduced motion support
-- Efficient CSS with mobile-first approach
-- Minimal JavaScript footprint
+### Interactive Elements
+- Smooth scroll navigation
+- Animated background
+- Mobile hamburger menu
+- Custom scrollbar styling
+- Page load animations
+
+### SEO & Performance
+- Custom favicon (AK logo)
+- Meta tags and descriptions
+- robots.txt configuration
+- Optimized images and assets
+
+## 🎨 Customization
+
+### Colors
+- Primary: `#3b82f6` (Blue)
+- Accent: `#f59e0b` (Amber)
+- Background: `#0f172a` (Dark slate)
+
+### Typography
+- Headings: Inter, system fonts
+- Body: Inter, system fonts
+- Code: JetBrains Mono
+
+## 📊 Version Control
+
+### Commit History
+- All changes are tracked with descriptive commit messages
+- Feature branches for major updates
+- Regular backups and deployments
+
+### Deployment
+- Automatic deployment via GitHub Pages
+- Custom 404/500 error pages
+- SSL/HTTPS enabled
+
+## 🔧 Maintenance
+
+### Regular Tasks
+1. Update project information
+2. Add new achievements
+3. Update contact information
+4. Test responsive design
+5. Check for broken links
+
+### Git Commands
+```bash
+# Check what's changed
+git status
+
+# Stage all changes
+git add .
+
+# Commit with message
+git commit -m "Description of changes"
+
+# Push to GitHub
+git push origin main
+```
+
+## 📞 Contact
+- **Email**: contact.me@smakshaj.com
+- **LinkedIn**: [smakshaj](https://www.linkedin.com/in/smakshaj/)
+- **GitHub**: [2smakshaj6](https://github.com/2smakshaj6)
+- **Credly**: [akshaj-shivara-madhusudhan](https://www.credly.com/users/akshaj-shivara-madhusudhan/badges#credly)
+
+---
+*Last updated: $(date)*
