@@ -112,22 +112,23 @@
 .publication-card:nth-child(5) { animation-delay: 0.5s; }
 .publication-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Custom Scrollbar Styling - Solid Amber Theme */
+/* Custom Scrollbar Styling - Thick Amber Theme */
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px; /* For horizontal scrollbars */
+    width: 16px; /* Increased from 12px for thicker scrollbar */
+    height: 16px; /* For horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track {
     background: #0f172a; /* Same as page background color */
-    border-radius: 6px;
+    border-radius: 8px; /* Slightly larger radius for thicker scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
     background: #f59e0b !important; /* Solid amber color with !important */
-    border-radius: 6px;
+    border-radius: 8px; /* Slightly larger radius for thicker scrollbar */
     border: none; /* Remove border for full width */
-    min-height: 20px; /* Ensure minimum thumb height */
+    min-height: 30px; /* Increased minimum thumb height */
+    min-width: 16px; /* Ensure minimum thumb width */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -140,19 +141,32 @@
 
 /* Additional scrollbar styling for better compatibility */
 * {
-    scrollbar-width: thin;
+    scrollbar-width: auto; /* Changed from thin to auto for thicker scrollbar */
     scrollbar-color: #f59e0b #0f172a;
 }
 
 /* Firefox scrollbar styling */
 html {
-    scrollbar-width: thin;
+    scrollbar-width: auto; /* Changed from thin to auto for thicker scrollbar */
     scrollbar-color: #f59e0b #0f172a; /* Solid amber thumb, page background track */
 }
 
 /* Ensure scrollbar is visible */
 body {
     overflow-y: scroll; /* Force vertical scrollbar to always show */
+}
+
+/* Safari-specific scrollbar styling */
+@supports (-webkit-appearance: none) {
+    ::-webkit-scrollbar {
+        width: 18px; /* Even thicker for Safari */
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #f59e0b !important;
+        border-radius: 9px;
+        min-height: 40px; /* Larger minimum height for Safari */
+    }
 }
 
 /* Reduce motion for accessibility */
