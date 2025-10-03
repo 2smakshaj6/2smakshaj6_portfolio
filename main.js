@@ -73,6 +73,12 @@ class SecurityPortfolio {
             navLinks.forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
             });
+
+            // Update mobile nav links active state
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+            });
         });
 
         // Control Three.js background animation based on scroll position
@@ -95,31 +101,47 @@ class SecurityPortfolio {
     setupMobileMenu() {
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileCloseBtn = document.querySelector('.mobile-close-btn');
-        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         
-        if (!mobileMenuBtn || !mobileCloseBtn || !navLinks) return;
+        if (!mobileMenuBtn || !mobileCloseBtn || !mobileMenuPanel) return;
 
         const openMenu = () => {
             mobileMenuBtn.classList.add('active');
             mobileCloseBtn.style.display = 'flex';
-            navLinks.classList.add('active');
+            mobileMenuPanel.classList.add('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         };
 
         const closeMenu = () => {
             mobileMenuBtn.classList.remove('active');
             mobileCloseBtn.style.display = 'none';
-            navLinks.classList.remove('active');
+            mobileMenuPanel.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Restore scrolling
         };
 
         mobileMenuBtn.addEventListener('click', openMenu);
         mobileCloseBtn.addEventListener('click', closeMenu);
 
-        // Close menu when clicking on a link
-        const navLinkItems = document.querySelectorAll('.nav-link');
-        navLinkItems.forEach(link => {
+        // Close menu when clicking on a mobile nav link
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking outside the panel
+        mobileMenuPanel.addEventListener('click', (e) => {
+            if (e.target === mobileMenuPanel) {
+                closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuPanel.classList.contains('active')) {
+                closeMenu();
+            }
         });
 
         // Close menu when clicking outside
