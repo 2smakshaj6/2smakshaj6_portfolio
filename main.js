@@ -15,6 +15,7 @@ class SecurityPortfolio {
         this.setupCarousel();
         this.setupScrollProgress();
         this.setupEmailModal();
+        this.setupPageLoadScroll();
     }
 
     // Navigation Setup
@@ -536,6 +537,27 @@ class SecurityPortfolio {
                     copyBtn.classList.remove('copied');
                 }, 2000);
             }
+        });
+    }
+
+    // Page Load Scroll Setup - Always start from About section
+    setupPageLoadScroll() {
+        // Check if this is a page refresh (not initial load)
+        const isPageRefresh = performance.navigation.type === 1 || 
+                              performance.getEntriesByType('navigation')[0].type === 'reload';
+        
+        // Always scroll to about section on page load/refresh
+        window.addEventListener('load', () => {
+            // Small delay to ensure all animations and content are loaded
+            setTimeout(() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100); // Small delay to ensure animations start properly
         });
     }
 }
