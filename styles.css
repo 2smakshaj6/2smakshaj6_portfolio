@@ -2827,7 +2827,7 @@ footer p {
     }
     
     .mobile-menu-btn.active {
-        display: none;
+        display: flex; /* Keep showing when active */
     }
     
     .mobile-close-btn {
