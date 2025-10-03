@@ -118,14 +118,14 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.8);
+    background: #0f172a; /* Same as page background color */
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #f59e0b, #fbbf24, #f59e0b);
     border-radius: 6px;
-    border: 2px solid rgba(15, 23, 42, 0.8);
+    border: 2px solid #0f172a; /* Match page background */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -139,7 +139,7 @@
 /* Firefox scrollbar styling */
 html {
     scrollbar-width: thin;
-    scrollbar-color: #f59e0b rgba(15, 23, 42, 0.8);
+    scrollbar-color: #f59e0b #0f172a; /* Amber thumb, page background track */
 }
 
 /* Reduce motion for accessibility */
